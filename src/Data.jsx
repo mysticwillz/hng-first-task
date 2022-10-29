@@ -22,7 +22,7 @@ const data = [
     linkName: "python books",
     redirect: "shop now",
     pitchText:
-      "Do you want to learn python? Python is one of the most popular programming language, unlock your inner Chakra with our biginner python books",
+      "Do you want to learn python? Python is one of the most popular programming language, unlock your inner Chakra with our biginner python books.",
   },
   {
     link: "https://background.zuri.team",

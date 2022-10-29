@@ -11,7 +11,7 @@ function Home() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <main className="max-w-4xl">
+    <main className="max-w-4xl mx-auto">
       <section className="flex flex-col justify-center items-center mt-[25px]">
         <img
           src="https://avatars.githubusercontent.com/u/111116636?s=400&u=0c9e7cf14378b1d318240ede1d4a9f314fe5c872&v=4"
@@ -76,21 +76,21 @@ function Home() {
         </p>
       </section>
       <section className="flex justify-center items-center text-lg ">
-        <a href="">
+        <a href="https://slack.com/mysticwillz">
           <img
             src={slack}
             alt="slack"
             className="w-[1.5rem] cursor-pointer px-[3px]"
           />
         </a>
-        <a href="">
+        <a href="https://github.com/mysticwillz/hng-first-task">
           <DiGithubBadge className="text-[2rem] cursor-pointer px-[2px]" />
         </a>
       </section>
-      <footer>
-        <img src={zuri} alt="zur" />
-        <img src={text} alt="text" />
-        <img src={ingforgood} alt="i4g" />
+      <footer className=" md:flex justify-between items-center mt-[50px] p-4">
+        <img src={zuri} alt="zuri" className=" h-[25px]" />
+        <img src={text} alt="text" className="my-[5px] h-[10px]" />
+        <img src={ingforgood} alt="i4g" className=" h-[25px]" />
       </footer>
     </main>
   );
