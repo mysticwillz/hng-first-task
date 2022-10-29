@@ -1,7 +1,7 @@
 import data from "./Data";
 import { useState } from "react";
 import { DiGithubBadge } from "react-icons/di";
-import { FaSlack } from "react-icons/fa";
+
 import ingforgood from "./assets/I4G.png";
 import slack from "./assets/slack.jpg";
 import text from "./assets/text.jpg";
@@ -35,10 +35,9 @@ function Home() {
           };
 
           return (
-            <>
+            <div key={id} className="w-full">
               {redirect ? (
                 <button
-                  key={id}
                   className=" w-full p-4 bg-gray-300 my-[4px] h-[30px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out transform hover:translate-y-[1px]"
                   onClick={() => {
                     handleClicked(i);
@@ -67,7 +66,7 @@ function Home() {
                   </span>
                 )}
               </p>
-            </>
+            </div>
           );
         })}
 
