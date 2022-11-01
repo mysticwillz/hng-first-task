@@ -54,7 +54,7 @@ function Home() {
               setImagePic(false);
             }}
             id="profile__img"
-            className="w-[65px] h-[65px] rounded-full cursor-pointer"
+            className="w-[75px] h-[75px] rounded-full cursor-pointer"
           />
         ) : (
           <img
@@ -64,10 +64,11 @@ function Home() {
               setImagePic(true);
             }}
             id="profile__img"
-            className="w-[65px] h-[65px] rounded-full cursor-pointer "
+            className="w-[75px] h-[75px] rounded-full cursor-pointer "
           />
         )}
         <p className="text-sm font-bold block mt-[10px]">mysticwillz</p>
+
         <p id="slack" className="text-sm font-bold  mt-[10px] hidden">
           mysticwillz
         </p>
@@ -133,21 +134,17 @@ function Home() {
             </div>
           );
         })}
-
-        <p id="slack" className=" hidden  ">
-          mysticwillz
-        </p>
       </section>
       <section className="flex justify-center items-center text-lg  my-0">
         <a href="https://slack.com/mysticwillz">
           <img
             src={slack}
             alt="slack"
-            className="w-[1.5rem] cursor-pointer px-[3px]"
+            className="w-[2.5rem] cursor-pointer px-[3px]"
           />
         </a>
         <a href="https://github.com/mysticwillz/hng-first-task">
-          <DiGithubBadge className="text-[2rem] cursor-pointer px-[4px]" />
+          <DiGithubBadge className="text-[3rem] cursor-pointer px-[4px]" />
         </a>
       </section>
       <div className="w-full bg-gray-300 h-[2px] px-4  mt-[50px]"></div>
