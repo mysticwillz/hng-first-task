@@ -63,7 +63,6 @@ function Home() {
             onMouseLeave={() => {
               setImagePic(true);
             }}
-            id="profile__img"
             className="w-[75px] h-[75px] rounded-full cursor-pointer "
           />
         )}
@@ -104,23 +103,17 @@ function Home() {
                   onMouseLeave={() => {
                     handleMouseLeave();
                   }}
-                  className="w-full"
+                  className="  hover:bg-gray-300 w-full  p-4 bg-gray-200 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
                 >
-                  <button
-                    id={id}
-                    className=" hover:bg-gray-300 w-full p-4 bg-gray-200 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out  "
-                  >
-                    {linkName}
-                  </button>
+                  {linkName}
                 </a>
               ) : (
-                <a href={link} id={id} className="w-full">
-                  <button
-                    id={id}
-                    className=" hover:bg-gray-300 w-full p-4 bg-gray-200 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
-                  >
-                    {linkName}
-                  </button>
+                <a
+                  href={link}
+                  id={id}
+                  className="  hover:bg-gray-300 w-full  p-4 bg-gray-200 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
+                >
+                  {linkName}
                 </a>
               )}
 
