@@ -53,8 +53,7 @@ function Home() {
             onMouseEnter={() => {
               setImagePic(false);
             }}
-            s
-            id="profile-id"
+            id="profile__img"
             className="w-[65px] h-[65px] rounded-full cursor-pointer"
           />
         ) : (
@@ -64,15 +63,18 @@ function Home() {
             onMouseLeave={() => {
               setImagePic(true);
             }}
-            id="profile-id"
+            id="profile__img"
             className="w-[65px] h-[65px] rounded-full cursor-pointer "
           />
         )}
         <p className="text-sm font-bold block mt-[10px]">mysticwillz</p>
+        <p id="slack" className="text-sm font-bold  mt-[10px] hidden">
+          mysticwillz
+        </p>
       </section>
       <section className="max-w-6xl mx-auto p-4 ">
         {data.map((x, i) => {
-          const { link, linkName, pitchText } = x;
+          const { link, linkName, id, pitchText } = x;
 
           const handleMouseEnter = (index) => {
             if (select === index) {
@@ -94,6 +96,7 @@ function Home() {
               {pitchText ? (
                 <a
                   href={link}
+                  id={id}
                   onMouseEnter={() => {
                     handleMouseEnter(i);
                   }}
@@ -102,13 +105,19 @@ function Home() {
                   }}
                   className="w-full"
                 >
-                  <button className=" hover:bg-gray-500 w-full p-4 bg-gray-300 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out  ">
+                  <button
+                    id={id}
+                    className=" hover:bg-gray-300 w-full p-4 bg-gray-200 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out  "
+                  >
                     {linkName}
                   </button>
                 </a>
               ) : (
-                <a href={link} className="w-full">
-                  <button className=" hover:bg-gray-500 w-full p-4 bg-gray-300 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out ">
+                <a href={link} id={id} className="w-full">
+                  <button
+                    id={id}
+                    className=" hover:bg-gray-300 w-full p-4 bg-gray-200 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
+                  >
                     {linkName}
                   </button>
                 </a>
@@ -141,7 +150,7 @@ function Home() {
           <DiGithubBadge className="text-[2rem] cursor-pointer px-[4px]" />
         </a>
       </section>
-      <div className="w-full bg-gray-400 h-[2px] px-4  mt-[50px]"></div>
+      <div className="w-full bg-gray-300 h-[2px] px-4  mt-[50px]"></div>
       <footer className="  md:flex justify-between items-center  p-4">
         <img src={zuri} alt="zuri" className=" h-[25px]" />
         <img src={text} alt="text" className="my-[8px] h-[15px]" />
