@@ -8,9 +8,9 @@ function Footer() {
     <>
       <div className="w-full bg-gray-200 h-[2px] px-4  mt-[50px]"></div>
       <footer className="  md:flex justify-between items-center  p-4">
-        <img src={zuri} alt="zuri" className=" h-[25px]" />
-        <img src={text} alt="text" className="my-[8px] h-[15px]" />
-        <img src={ingforgood} alt="i4g" className=" h-[25px]" />
+        <img src={zuri} alt="zuri" className=" h-[18.55px]" />
+        <img src={text} alt="text" className="my-[8px] h-[30px]" />
+        <img src={ingforgood} alt="i4g" className=" h-[24px]" />
       </footer>
     </>
   );

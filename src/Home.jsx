@@ -34,7 +34,7 @@ function Home() {
             <img
               src={tooltip}
               alt="share button "
-              className="hidden md:block"
+              className="hidden md:inline"
             />
           )}
           <img
@@ -46,7 +46,7 @@ function Home() {
             onMouseLeave={() => {
               setShareBtn(false);
             }}
-            className="w-[40px] h-[40px] rounded-full cursor-pointer hidden md:block web-share"
+            className="w-[40px] h-[40px]  rounded-full cursor-pointer hidden md:block web-share"
           />
         </div>
 
@@ -59,7 +59,7 @@ function Home() {
                 setImagePic(false);
               }}
               id="profile__img"
-              className="w-[75px] h-[75px] rounded-full cursor-pointer"
+              className="w-[88px] h-[88px] rounded-full cursor-pointer"
             />
           ) : (
             <img
@@ -68,12 +68,12 @@ function Home() {
               onMouseLeave={() => {
                 setImagePic(true);
               }}
-              className="w-[75px] h-[75px] rounded-full cursor-pointer "
+              className="w-[88px] h-[88px] rounded-full cursor-pointer "
             />
           )}
           <p className="text-sm font-bold block mt-[10px]">mysticwillz</p>
 
-          <p id="slack" className="text-sm font-bold  mt-[10px] hidden">
+          <p id="slack" className="text-[20px] font-bold  mt-[10px] hidden">
             mysticwillz
           </p>
         </section>
@@ -108,7 +108,7 @@ function Home() {
                     onMouseLeave={() => {
                       handleMouseLeave();
                     }}
-                    className="  hover:bg-gray-300 w-full font-medium my-[8px]   p-4 bg-gray-200  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
+                    className="  hover:bg-gray-300 w-full font-medium my-[8px]   p-4 bg-gray-200  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded-[8px] text-sm hover:shadow-sm transition duration-150 ease-in-out "
                   >
                     {linkName}
                   </a>
@@ -116,7 +116,7 @@ function Home() {
                   <a
                     href={link}
                     id={id}
-                    className="  hover:bg-gray-300 w-full font-medium p-4 bg-gray-200 my-[8px]  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
+                    className="  hover:bg-gray-300 w-full font-medium p-4 bg-gray-200 my-[8px]  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded-[8px] text-sm hover:shadow-sm transition duration-150 ease-in-out "
                   >
                     {linkName}
                   </a>
@@ -140,7 +140,7 @@ function Home() {
             <img
               src={slack}
               alt="slack"
-              className="w-[2.5rem] cursor-pointer px-[3px]"
+              className="w-[2.5rem] cursor-pointer px-[4px]"
             />
           </a>
           <a href="https://github.com/mysticwillz/hng-first-task">
