@@ -1,4 +1,4 @@
-import data from "./Data";
+import data from "./Components/Data";
 import { useState } from "react";
 import { DiGithubBadge } from "react-icons/di";
 
@@ -14,7 +14,7 @@ import tooltip from "./assets/Tooltip.png";
 import slack from "./assets/slack.jpg";
 
 import share from "./assets/share-button.jpg";
-import Footer from "./Footer";
+import Footer from "./Components/Footer";
 
 function Home() {
   const [select, setSelect] = useState(null);
@@ -103,7 +103,7 @@ function Home() {
                   onMouseLeave={() => {
                     handleMouseLeave();
                   }}
-                  className="  hover:bg-gray-300 w-full  p-4 bg-gray-200 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
+                  className="  hover:bg-gray-300 w-full font-medium my-[8px]   p-4 bg-gray-200  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
                 >
                   {linkName}
                 </a>
@@ -111,7 +111,7 @@ function Home() {
                 <a
                   href={link}
                   id={id}
-                  className="  hover:bg-gray-300 w-full  p-4 bg-gray-200 my-[4px] h-[60px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
+                  className="  hover:bg-gray-300 w-full font-medium p-4 bg-gray-200 my-[8px]  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
                 >
                   {linkName}
                 </a>

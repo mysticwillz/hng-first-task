@@ -1,7 +1,7 @@
 import React from "react";
-import zuri from "./assets/zuri.jpg";
-import ingforgood from "./assets/I4G.png";
-import text from "./assets/text.jpg";
+import zuri from "../assets/zuri.jpg";
+import ingforgood from "../assets/I4G.png";
+import text from "../assets/text.jpg";
 
 function Footer() {
   return (
