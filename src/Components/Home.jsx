@@ -2,19 +2,19 @@ import data from "./Data";
 import { useState } from "react";
 import { DiGithubBadge } from "react-icons/di";
 
-import ingforgood from "./assets/I4G.png";
 import image from "./assets/image.png";
 import imagehover from "./assets/imagehover.png";
 
 import mobileshare from "./assets/mobileshare.png";
+
 import sharehover from "./assets/sharehover.png";
+
 import tooltip from "./assets/Tooltip.png";
 
 import slack from "./assets/slack.jpg";
-import text from "./assets/text.jpg";
-import zuri from "./assets/zuri.jpg";
 
 import share from "./assets/share-button.jpg";
+import Footer from "./Footer";
 
 function Home() {
   const [select, setSelect] = useState(null);
@@ -140,12 +140,7 @@ function Home() {
           <DiGithubBadge className="text-[3rem] cursor-pointer px-[4px]" />
         </a>
       </section>
-      <div className="w-full bg-gray-300 h-[2px] px-4  mt-[50px]"></div>
-      <footer className="  md:flex justify-between items-center  p-4">
-        <img src={zuri} alt="zuri" className=" h-[25px]" />
-        <img src={text} alt="text" className="my-[8px] h-[15px]" />
-        <img src={ingforgood} alt="i4g" className=" h-[25px]" />
-      </footer>
+      <Footer />
     </main>
   );
 }

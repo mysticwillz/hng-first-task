@@ -1,7 +1,13 @@
 import Home from "./Home";
 import { Routes, Route } from "react-router-dom";
+import Contact from "./Components/Pages/Contact";
 function App() {
-  return <Home />;
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+  );
 }
 
 export default App;
