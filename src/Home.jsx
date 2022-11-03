@@ -22,126 +22,134 @@ function Home() {
   const [imagePic, setImagePic] = useState(true);
 
   return (
-    <main className="max-w-6xl mx-auto mt-[30px]">
-      <div className="flex justify-end w-full pr-[10%] mt-[10px]">
-        <img
-          src={mobileshare}
-          alt="share button "
-          className="mobile-share md:hidden"
-        />
-        {shareBtn && (
-          <img src={tooltip} alt="share button " className="hidden md:block" />
-        )}
-        <img
-          src={share}
-          alt="share button"
-          onMouseEnter={() => {
-            setShareBtn(true);
-          }}
-          onMouseLeave={() => {
-            setShareBtn(false);
-          }}
-          className="w-[40px] h-[40px] rounded-full cursor-pointer hidden md:block web-share"
-        />
-      </div>
-
-      <section className="flex flex-col justify-center items-center mt-[25px]">
-        {imagePic ? (
+    <div className=" w-full h-full bg-[#f4f5f7] ">
+      <main className="max-w-6xl mx-auto pt-[30px] ">
+        <div className="flex justify-end w-full pr-[10%] mt-[10px]">
           <img
-            src={image}
-            alt="profile"
+            src={mobileshare}
+            alt="share button "
+            className="mobile-share md:hidden"
+          />
+          {shareBtn && (
+            <img
+              src={tooltip}
+              alt="share button "
+              className="hidden md:block"
+            />
+          )}
+          <img
+            src={share}
+            alt="share button"
             onMouseEnter={() => {
-              setImagePic(false);
+              setShareBtn(true);
             }}
-            id="profile__img"
-            className="w-[75px] h-[75px] rounded-full cursor-pointer"
-          />
-        ) : (
-          <img
-            src={imagehover}
-            alt="profile"
             onMouseLeave={() => {
-              setImagePic(true);
+              setShareBtn(false);
             }}
-            className="w-[75px] h-[75px] rounded-full cursor-pointer "
+            className="w-[40px] h-[40px] rounded-full cursor-pointer hidden md:block web-share"
           />
-        )}
-        <p className="text-sm font-bold block mt-[10px]">mysticwillz</p>
+        </div>
 
-        <p id="slack" className="text-sm font-bold  mt-[10px] hidden">
-          mysticwillz
-        </p>
-      </section>
-      <section className="max-w-6xl mx-auto p-4 ">
-        {data.map((x, i) => {
-          const { link, linkName, id, pitchText } = x;
+        <section className="flex flex-col justify-center items-center mt-[25px]">
+          {imagePic ? (
+            <img
+              src={image}
+              alt="profile"
+              onMouseEnter={() => {
+                setImagePic(false);
+              }}
+              id="profile__img"
+              className="w-[75px] h-[75px] rounded-full cursor-pointer"
+            />
+          ) : (
+            <img
+              src={imagehover}
+              alt="profile"
+              onMouseLeave={() => {
+                setImagePic(true);
+              }}
+              className="w-[75px] h-[75px] rounded-full cursor-pointer "
+            />
+          )}
+          <p className="text-sm font-bold block mt-[10px]">mysticwillz</p>
 
-          const handleMouseEnter = (index) => {
-            if (select === index) {
-              setSelect(null);
-            } else {
-              setSelect(index);
-            }
-          };
+          <p id="slack" className="text-sm font-bold  mt-[10px] hidden">
+            mysticwillz
+          </p>
+        </section>
+        <section className="max-w-6xl mx-auto p-4 ">
+          {data.map((x, i) => {
+            const { link, linkName, id, pitchText } = x;
 
-          const handleMouseLeave = () => {
-            return setSelect(null);
-          };
+            const handleMouseEnter = (index) => {
+              if (select === index) {
+                setSelect(null);
+              } else {
+                setSelect(index);
+              }
+            };
 
-          return (
-            <div
-              key={i}
-              className="w-full  flex flex-col justify-center mx-auto  items-center "
-            >
-              {pitchText ? (
-                <a
-                  href={link}
-                  id={id}
-                  onMouseEnter={() => {
-                    handleMouseEnter(i);
-                  }}
-                  onMouseLeave={() => {
-                    handleMouseLeave();
-                  }}
-                  className="  hover:bg-gray-300 w-full font-medium my-[8px]   p-4 bg-gray-200  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
-                >
-                  {linkName}
-                </a>
-              ) : (
-                <a
-                  href={link}
-                  id={id}
-                  className="  hover:bg-gray-300 w-full font-medium p-4 bg-gray-200 my-[8px]  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
-                >
-                  {linkName}
-                </a>
-              )}
+            const handleMouseLeave = () => {
+              return setSelect(null);
+            };
 
-              <p
-                className={
-                  select === i ? " w-full flex flex-col items-start" : "hidden"
-                }
+            return (
+              <div
+                key={i}
+                className="w-full  flex flex-col justify-center mx-auto  items-center "
               >
-                {pitchText}
-              </p>
-            </div>
-          );
-        })}
-      </section>
-      <section className="flex justify-center items-center text-lg  my-0">
-        <a href="https://slack.com/mysticwillz">
-          <img
-            src={slack}
-            alt="slack"
-            className="w-[2.5rem] cursor-pointer px-[3px]"
-          />
-        </a>
-        <a href="https://github.com/mysticwillz/hng-first-task">
-          <DiGithubBadge className="text-[3rem] cursor-pointer px-[4px]" />
-        </a>
-      </section>
-      <Footer />
-    </main>
+                {pitchText ? (
+                  <a
+                    href={link}
+                    id={id}
+                    onMouseEnter={() => {
+                      handleMouseEnter(i);
+                    }}
+                    onMouseLeave={() => {
+                      handleMouseLeave();
+                    }}
+                    className="  hover:bg-gray-300 w-full font-medium my-[8px]   p-4 bg-gray-200  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
+                  >
+                    {linkName}
+                  </a>
+                ) : (
+                  <a
+                    href={link}
+                    id={id}
+                    className="  hover:bg-gray-300 w-full font-medium p-4 bg-gray-200 my-[8px]  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded text-sm hover:shadow-sm transition duration-150 ease-in-out "
+                  >
+                    {linkName}
+                  </a>
+                )}
+
+                <p
+                  className={
+                    select === i
+                      ? " w-full flex flex-col items-start"
+                      : "hidden"
+                  }
+                >
+                  {pitchText}
+                </p>
+              </div>
+            );
+          })}
+        </section>
+        <section className="flex justify-center items-center text-lg  my-0">
+          <a href="https://slack.com/mysticwillz">
+            <img
+              src={slack}
+              alt="slack"
+              className="w-[2.5rem] cursor-pointer px-[3px]"
+            />
+          </a>
+          <a href="https://github.com/mysticwillz/hng-first-task">
+            <DiGithubBadge className="text-[3rem] cursor-pointer px-[4px]" />
+          </a>
+        </section>
+        <Footer />
+      </main>
+    </div>
   );
 }
 
