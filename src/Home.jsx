@@ -22,7 +22,7 @@ function Home() {
   const [imagePic, setImagePic] = useState(true);
 
   return (
-    <div className=" w-full h-full bg-[#f4f5f7] ">
+    <div className=" w-full h-full  ">
       <main className="max-w-6xl mx-auto pt-[30px] ">
         <div className="flex justify-end w-full pr-[10%] mt-[10px]">
           <img

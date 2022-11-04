@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { BsCheck } from "react-icons/bs";
+import Footer from "../Components/Footer";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,7 +12,11 @@ export default function Contact() {
     checkbox: false,
   });
   const [check, setCheck] = useState(false);
-  const [error, setError] = useState(false);
+  const [messageError, setMessageError] = useState(false);
+  const [firstNameError, setFirstNameError] = useState(false);
+  const [lastNameError, setLastNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+
   const { first_name, last_name, email, message, checkbox } = formData;
 
   const handleChange = (e) => {
@@ -20,7 +25,21 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    message === " ".trim() && setError(true);
+
+    if (first_name === " ".trim()) {
+      setFirstNameError(true);
+    }
+    if (last_name === "".trim()) {
+      setLastNameError(true);
+    }
+    if (email === "".trim()) {
+      setEmailError(true);
+    }
+    if (message === "".trim()) {
+      setMessageError(true);
+    } else {
+      window.alert("Message sent successfully");
+    }
   };
   return (
     <main className="  bg-white w-full  h-full">
@@ -53,8 +72,17 @@ export default function Contact() {
                   onChange={(e) => {
                     handleChange(e);
                   }}
-                  className="mt-[3px] focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                  className={
+                    firstNameError
+                      ? "mt-[3px]  focus:border-[#84CAFF] border focus:shadow border-[#F89687] py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                      : "mt-[3px]  focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                  }
                 />
+                {firstNameError && (
+                  <p className="font-medium text-sm text-[#F83F23]">
+                    First name can not be blank
+                  </p>
+                )}
               </div>
               <div className="w-full md:w-[50%] md:ml-4 mt-[16px] ">
                 <p className="font-medium leading-[20px] text-gray-700 text-sm">
@@ -68,8 +96,17 @@ export default function Contact() {
                   onChange={(e) => {
                     handleChange(e);
                   }}
-                  className="mt-[3px] focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                  className={
+                    lastNameError
+                      ? "mt-[3px] border-[#F89687] focus:border-[#84CAFF] border focus:shadow  py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                      : "mt-[3px]  focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                  }
                 />
+                {lastNameError && (
+                  <p className="font-medium text-sm text-[#F83F23]">
+                    Last name can not be blank
+                  </p>
+                )}
               </div>
             </div>
             <div className="w-[100%] mt-[16px]">
@@ -84,8 +121,17 @@ export default function Contact() {
                 onChange={(e) => {
                   handleChange(e);
                 }}
-                className="mt-[3px]focus:border-[#84CAFF] border focus:border-[#84CAFF] focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                className={
+                  emailError
+                    ? "mt-[3px]focus:border-[#84CAFF] border border-[#F89687] focus:border-[#84CAFF] focus:shadow py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                    : "mt-[3px]focus:border-[#84CAFF] border  focus:border-[#84CAFF] focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                }
               />
+              {emailError && (
+                <p className="font-medium text-sm text-[#F83F23]">
+                  Email can not be blank
+                </p>
+              )}
             </div>
             <div className="w-[100%] mt-[16px]">
               <p className="font-medium leading-[20px] text-gray-700 text-sm">
@@ -99,12 +145,12 @@ export default function Contact() {
                   handleChange(e);
                 }}
                 className={
-                  error
+                  messageError
                     ? "  mt-[3px] focus:border-[#84CAFF] border focus:shadow border-[#F89687] py-[12px] w-full px-[14px] h-[132px] rounded-[8px] outline-0 "
                     : "  mt-[3px] focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[12px] w-full px-[14px] h-[132px] rounded-[8px] outline-0 "
                 }
               ></textarea>
-              {error && (
+              {messageError && (
                 <p className="font-medium text-sm text-[#F83F23]">
                   Please enter a message
                 </p>
@@ -115,44 +161,46 @@ export default function Contact() {
               onClick={() => {
                 setCheck(!check);
               }}
-              className=" flex items-center cursor-pointer mt-[16px] font-[400px] leading-[24px] "
+              className=" flex items-center relative cursor-pointer mt-[16px] font-[400px] leading-[24px] "
             >
               <div
                 className={
                   check
                     ? ` border-[2px] border-[#1570EF] shadow-lg   flex items-center justify-center  h-[20px] w-[20px] mr-2 rounded-[6px]  `
-                    : "hover:shadow flex items-center justify-center hover:border-[#84CAFF] h-[20px] w-[20px] mr-2 border-[2px] rounded-[6px] border-gray-300 "
+                    : "hover:shadow flex items-center justify-center hover:border-[#84CAFF] transition duration-100 h-[20px] w-[20px] mr-2 border-[2px] rounded-[6px] border-gray-300 "
                 }
               >
                 <BsCheck
                   className={
                     check
                       ? "w-[20px] h-[20px] rounded-[6px] text-[#1570EF]"
-                      : "hidden  "
+                      : "opacity-0  "
                   }
                 />
               </div>
-              <p className="  font-[400px] leading-[24px] ">{`You agree to providing your data to {name} who may contact you.`}</p>
               <input
                 type="checkbox"
                 checked={check}
                 value={checkbox}
                 id="checkbox"
                 name="checkbox"
+                required
                 onChange={(e) => {
                   handleChange(e);
                 }}
-                className="opacity-0  "
+                className="opacity-0  absolute left-0"
               />
+              <p className="   font-[400px] leading-[24px] ">{`You agree to providing your data to {name} who may contact you.`}</p>
             </div>
             <button
               id="btn__submit"
-              className="h-[48px] mt-[16px] w-full bg-[#1570EF] flex items-center justify-center rounded-[8px] hover:bg-[#175CD3] hover:shadow-xl text-white border-0 leading-[24px] font-semibold"
+              className="h-[48px] mt-[16px] w-full bg-[#1570EF] flex items-center justify-center rounded-[8px] hover:bg-[#175CD3] hover:shadow-xl transition duration-100 text-white border-0 leading-[24px] font-semibold"
             >
               Send message
             </button>
           </form>
         </section>
+        <Footer />
       </div>
     </main>
   );
