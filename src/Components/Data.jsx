@@ -40,11 +40,6 @@ const data = [
     pitchText:
       "Kickstart your design journey with this book created to by Zuri Team for aspiring designers, and the best part it's free!!",
   },
-  {
-    link: "/contact",
-    linkName: "contact me",
-    id: "contact",
-  },
 ];
 
 export default data;

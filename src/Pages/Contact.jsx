@@ -46,12 +46,16 @@ export default function Contact() {
         email: "",
         message: "",
       });
+      setFirstNameError(false);
+      setLastNameError(false);
+      setEmailError(false);
+      setMessageError(false);
     }
   };
   return (
     <main className="  bg-white w-full  h-full">
-      <div className=" max-w-6xl my-auto mx-auto">
-        <section className=" max-w-3xl px-4  mx-auto">
+      <div className=" min-h-screen max-w-6xl  mx-auto">
+        <section className=" mx-auto max-w-3xl px-4  ">
           <header>
             <h1 className="font-semibold capitalize text-[#101828] mt-[40px] text-[36px] leading-[44px]">
               contact me
