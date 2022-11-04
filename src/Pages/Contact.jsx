@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { BsCheck } from "react-icons/bs";
+import { toast } from "react-toastify";
 import Footer from "../Components/Footer";
 
 export default function Contact() {
@@ -38,7 +39,13 @@ export default function Contact() {
     if (message === "".trim()) {
       setMessageError(true);
     } else {
-      window.alert("Message sent successfully");
+      toast.success("Message sent");
+      setFormData({
+        first_name: "",
+        last_name: "",
+        email: "",
+        message: "",
+      });
     }
   };
   return (
@@ -46,7 +53,7 @@ export default function Contact() {
       <div className=" max-w-6xl my-auto mx-auto">
         <section className=" max-w-3xl px-4  mx-auto">
           <header>
-            <h1 className="font-semibold capitalize text-[#101828] mt-[45px] text-[36px] leading-[44px]">
+            <h1 className="font-semibold capitalize text-[#101828] mt-[40px] text-[36px] leading-[44px]">
               contact me
             </h1>
             <p className="text-[20px] font-normal text-[#475467] mt-[8px] leading-[30px]">
@@ -188,7 +195,7 @@ export default function Contact() {
                 onChange={(e) => {
                   handleChange(e);
                 }}
-                className="opacity-0  absolute left-0"
+                className="opacity-0  absolute left-[3px]"
               />
               <p className="   font-[400px] leading-[24px] ">{`You agree to providing your data to {name} who may contact you.`}</p>
             </div>
