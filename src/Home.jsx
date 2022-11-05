@@ -13,19 +13,13 @@ import slack from "./assets/slack.jpg";
 
 import share from "./assets/share-button.jpg";
 import Footer from "./Components/Footer";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [select, setSelect] = useState(null);
   const [shareBtn, setShareBtn] = useState(false);
   const [imagePic, setImagePic] = useState(true);
-  const navigate = useNavigate();
 
-  const handleContact = (e) => {
-    e.preventDefault();
-
-    navigate("/contact");
-  };
   return (
     <div className=" w-full h-full  ">
       <main className="max-w-6xl mx-auto pt-[30px] ">
@@ -139,16 +133,13 @@ function Home() {
               </div>
             );
           })}
-          <a
-            href="/contact"
-            onClick={(e) => {
-              handleContact(e);
-            }}
+          <Link
+            to="/contact"
             id="contact"
             className="  hover:bg-gray-300 w-full font-medium p-4 bg-gray-200 my-[8px]  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded-[8px] text-sm hover:shadow-sm transition duration-150 ease-in-out "
           >
             contact me
-          </a>
+          </Link>
         </section>
         <section className="flex justify-center items-center text-lg  my-0">
           <a href="https://slack.com/mysticwillz">

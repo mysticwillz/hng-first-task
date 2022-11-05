@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsCheck } from "react-icons/bs";
 import { toast } from "react-toastify";
 import Footer from "../Components/Footer";
@@ -13,10 +13,12 @@ export default function Contact() {
     checkbox: false,
   });
   const [check, setCheck] = useState(false);
-  const [messageError, setMessageError] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
   const [firstNameError, setFirstNameError] = useState(false);
   const [lastNameError, setLastNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [messageError, setMessageError] = useState(false);
 
   const { first_name, last_name, email, message, checkbox } = formData;
 
@@ -26,23 +28,15 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (first_name === " ".trim()) {
-      setFirstNameError(true);
-    }
-    if (last_name === "".trim()) {
-      setLastNameError(true);
-    }
-    if (email === "".trim()) {
-      setEmailError(true);
-    }
-    if (message === "".trim()) {
-      setMessageError(true);
-    } else {
+    setFormErrors(validate(formData));
+    setIsSubmit(true);
+  };
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
       toast.success("Message sent");
       setFormData({
-        first_name: "",
         last_name: "",
+        first_name: "",
         email: "",
         message: "",
       });
@@ -51,7 +45,32 @@ export default function Contact() {
       setEmailError(false);
       setMessageError(false);
     }
+  }, [formErrors]);
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.first_name) {
+      errors.first_name = "First name can not be blank";
+      setFirstNameError(true);
+    }
+    if (!values.last_name) {
+      errors.last_name = "Last name can not be blank";
+      setLastNameError(true);
+    }
+    if (!values.email) {
+      errors.email = "Email name can not be blank";
+      setEmailError(true);
+    } else if (!regex.test(values.email)) {
+      errors.email = "This is not a valid email format";
+    }
+    if (!values.message) {
+      errors.message = "Please enter a message";
+      setMessageError(true);
+    }
+
+    return errors;
   };
+
   return (
     <main className="  bg-white w-full  h-full">
       <div className=" min-h-screen max-w-6xl  mx-auto">
@@ -70,8 +89,8 @@ export default function Contact() {
             }}
             className="w-full "
           >
-            <div className="pt-5 mt-[16px] flex justify-between flex-wrap md:flex-nowrap items-center w-full">
-              <div className="w-full md:w-[50%] md:mr-4 mt-[16px]  ">
+            <div className="pt-5 mt-[10px] flex justify-between flex-wrap md:flex-nowrap items-center w-full">
+              <div className="w-full md:w-[50%] md:mr-4 mt-[10px]  ">
                 <p className="font-medium leading-[20px] text-gray-700 text-sm">
                   first name
                 </p>
@@ -89,13 +108,12 @@ export default function Contact() {
                       : "mt-[3px]  focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
                   }
                 />
-                {firstNameError && (
-                  <p className="font-medium text-sm text-[#F83F23]">
-                    First name can not be blank
-                  </p>
-                )}
+
+                <p className="font-medium text-sm text-[#F83F23]">
+                  {formErrors.first_name}
+                </p>
               </div>
-              <div className="w-full md:w-[50%] md:ml-4 mt-[16px] ">
+              <div className="w-full md:w-[50%] md:ml-4 mt-[10px] ">
                 <p className="font-medium leading-[20px] text-gray-700 text-sm">
                   last name
                 </p>
@@ -113,14 +131,13 @@ export default function Contact() {
                       : "mt-[3px]  focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
                   }
                 />
-                {lastNameError && (
-                  <p className="font-medium text-sm text-[#F83F23]">
-                    Last name can not be blank
-                  </p>
-                )}
+
+                <p className="font-medium text-sm text-[#F83F23]">
+                  {formErrors.last_name}
+                </p>
               </div>
             </div>
-            <div className="w-[100%] mt-[16px]">
+            <div className="w-[100%] mt-[10px]">
               <p className="font-medium leading-[20px] text-gray-700 text-sm">
                 Email
               </p>
@@ -138,13 +155,12 @@ export default function Contact() {
                     : "mt-[3px]focus:border-[#84CAFF] border  focus:border-[#84CAFF] focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
                 }
               />
-              {emailError && (
-                <p className="font-medium text-sm text-[#F83F23]">
-                  Email can not be blank
-                </p>
-              )}
+
+              <p className="font-medium text-sm text-[#F83F23]">
+                {formErrors.email}
+              </p>
             </div>
-            <div className="w-[100%] mt-[16px]">
+            <div className="w-[100%] mt-[10px]">
               <p className="font-medium leading-[20px] text-gray-700 text-sm">
                 Message
               </p>
@@ -161,18 +177,17 @@ export default function Contact() {
                     : "  mt-[3px] focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[12px] w-full px-[14px] h-[132px] rounded-[8px] outline-0 "
                 }
               ></textarea>
-              {messageError && (
-                <p className="font-medium text-sm text-[#F83F23]">
-                  Please enter a message
-                </p>
-              )}
+
+              <p className="font-medium text-sm text-[#F83F23]">
+                {formErrors.message}
+              </p>
             </div>
 
             <div
               onClick={() => {
                 setCheck(!check);
               }}
-              className=" flex items-center relative cursor-pointer mt-[16px] font-[400px] leading-[24px] "
+              className=" flex items-center relative cursor-pointer mt-[10px] font-[400px] leading-[24px] "
             >
               <div
                 className={
