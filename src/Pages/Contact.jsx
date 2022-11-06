@@ -58,7 +58,7 @@ export default function Contact() {
       setLastNameError(true);
     }
     if (!values.email) {
-      errors.email = "Email name can not be blank";
+      errors.email = "Email can not be blank";
       setEmailError(true);
     } else if (!regex.test(values.email)) {
       errors.email = "This is not a valid email format";
@@ -91,9 +91,12 @@ export default function Contact() {
           >
             <div className="pt-5 mt-[10px] flex justify-between flex-wrap md:flex-nowrap items-center w-full">
               <div className="w-full md:w-[50%] md:mr-4 mt-[10px]  ">
-                <p className="font-medium leading-[20px] text-gray-700 text-sm">
-                  first name
-                </p>
+                <label
+                  htmlFor="first_name"
+                  className="font-medium leading-[20px] text-gray-700 text-sm"
+                >
+                  First name
+                </label>
                 <input
                   type="text"
                   value={first_name}
@@ -104,8 +107,8 @@ export default function Contact() {
                   }}
                   className={
                     firstNameError
-                      ? "mt-[3px]  focus:border-[#84CAFF] border focus:shadow border-[#F89687] py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
-                      : "mt-[3px]  focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                      ? "mt-[3px]  focus:border-[#84CAFF] border  border-[#F89687] py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                      : "mt-[3px]  focus:border-[#84CAFF] border  border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
                   }
                 />
 
@@ -113,10 +116,13 @@ export default function Contact() {
                   {formErrors.first_name}
                 </p>
               </div>
-              <div className="w-full md:w-[50%] md:ml-4 mt-[10px] ">
-                <p className="font-medium leading-[20px] text-gray-700 text-sm">
-                  last name
-                </p>
+              <div className="w-full md:w-[50%] md:ml-4 mt-[10px] flex flex-col ">
+                <label
+                  htmlFor="last_name"
+                  className="font-medium leading-[20px] text-gray-700 text-sm"
+                >
+                  Last name
+                </label>
                 <input
                   type="text"
                   value={last_name}
@@ -127,8 +133,8 @@ export default function Contact() {
                   }}
                   className={
                     lastNameError
-                      ? "mt-[3px] border-[#F89687] focus:border-[#84CAFF] border focus:shadow  py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
-                      : "mt-[3px]  focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                      ? "mt-[3px] border-[#F89687] focus:border-[#84CAFF] border   py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                      : "mt-[3px]  focus:border-[#84CAFF] border  border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
                   }
                 />
 
@@ -137,10 +143,13 @@ export default function Contact() {
                 </p>
               </div>
             </div>
-            <div className="w-[100%] mt-[10px]">
-              <p className="font-medium leading-[20px] text-gray-700 text-sm">
+            <div className="w-[100%] mt-[10px] flex flex-col">
+              <label
+                htmlFor="email"
+                className="font-medium leading-[20px] text-gray-700 text-sm"
+              >
                 Email
-              </p>
+              </label>
               <input
                 type="email"
                 value={email}
@@ -151,8 +160,8 @@ export default function Contact() {
                 }}
                 className={
                   emailError
-                    ? "mt-[3px]focus:border-[#84CAFF] border border-[#F89687] focus:border-[#84CAFF] focus:shadow py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
-                    : "mt-[3px]focus:border-[#84CAFF] border  focus:border-[#84CAFF] focus:shadow border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                    ? "mt-[3px]focus:border-[#84CAFF] border border-[#F89687] focus:border-[#84CAFF]  py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
+                    : "mt-[3px]focus:border-[#84CAFF] border  focus:border-[#84CAFF]  border-gray-300 py-[10px] w-full px-[14px] h-[44px] rounded-[8px] outline-0 "
                 }
               />
 
@@ -160,10 +169,13 @@ export default function Contact() {
                 {formErrors.email}
               </p>
             </div>
-            <div className="w-[100%] mt-[10px]">
-              <p className="font-medium leading-[20px] text-gray-700 text-sm">
+            <div className="w-[100%] mt-[10px] flex flex-col">
+              <label
+                htmlFor="message"
+                className="font-medium leading-[20px] text-gray-700 text-sm"
+              >
                 Message
-              </p>
+              </label>
               <textarea
                 id="message"
                 value={message}
@@ -173,8 +185,8 @@ export default function Contact() {
                 }}
                 className={
                   messageError
-                    ? "  mt-[3px] focus:border-[#84CAFF] border focus:shadow border-[#F89687] py-[12px] w-full px-[14px] h-[132px] rounded-[8px] outline-0 "
-                    : "  mt-[3px] focus:border-[#84CAFF] border focus:shadow border-gray-300 py-[12px] w-full px-[14px] h-[132px] rounded-[8px] outline-0 "
+                    ? "  mt-[3px] focus:border-[#F89687] border focus--shadow border-[#F89687] py-[12px] w-full px-[14px] h-[132px] rounded-[8px] outline-0 "
+                    : "  mt-[3px] focus:border-[#84CAFF] border focus-shadow border-gray-300 py-[12px] w-full px-[14px] h-[132px] rounded-[8px] outline-0 "
                 }
               ></textarea>
 
@@ -193,7 +205,7 @@ export default function Contact() {
                 className={
                   check
                     ? ` border-[2px] border-[#1570EF] shadow-lg   flex items-center justify-center  h-[20px] w-[20px] mr-2 rounded-[6px]  `
-                    : "hover:shadow flex items-center justify-center hover:border-[#84CAFF] transition duration-100 h-[20px] w-[20px] mr-2 border-[2px] rounded-[6px] border-gray-300 "
+                    : "   flex items-center checkbox justify-center hover:border-[#84CAFF] transition duration-100 h-[20px] w-[20px] mr-2 border-[2px] rounded-[6px] border-gray-300 "
                 }
               >
                 <BsCheck
@@ -214,13 +226,19 @@ export default function Contact() {
                 onChange={(e) => {
                   handleChange(e);
                 }}
-                className="opacity-0  absolute left-[3px]"
+                className="opacity-0 h[1px] w-[1px]  absolute left-[3px] cursor-pointer"
               />
-              <p className="   font-[400px] leading-[24px] ">{`You agree to providing your data to {name} who may contact you.`}</p>
+              <label
+                htmlFor="checkbox"
+                className="   font-[400px] leading-[24px] "
+              >
+                You agree to providing your data to Eze Williams who may contact
+                you.
+              </label>
             </div>
             <button
               id="btn__submit"
-              className="h-[48px] mt-[16px] w-full bg-[#1570EF] flex items-center justify-center rounded-[8px] hover:bg-[#175CD3] hover:shadow-xl transition duration-100 text-white border-0 leading-[24px] font-semibold"
+              className="h-[48px] mt-[16px] w-full bg-[#1570EF] flex items-center btn-hover justify-center rounded-[8px] hover:bg-[#175CD3]  transition duration-100 text-white border-0 leading-[24px] font-semibold"
             >
               Send message
             </button>

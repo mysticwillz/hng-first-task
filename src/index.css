@@ -7,3 +7,24 @@
 body {
   background-color: #fff;
 }
+
+.focus-shadow:focus {
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #d1e9ff;
+}
+
+.focus--shadow {
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #ffd3cc;
+  border-radius: 8px;
+}
+
+.btn-hover:hover {
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #d1e9ff;
+}
+
+.checkbox:hover {
+  box-shadow: 0px 0px 0px 4px #d1e9ff;
+}
+
+input:hover {
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+}

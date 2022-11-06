@@ -134,7 +134,7 @@ function Home() {
             );
           })}
           <Link
-            to="/contact"
+            to={{ pathname: "/contact" }}
             id="contact"
             className="  hover:bg-gray-300 w-full font-medium p-4 bg-gray-200 my-[8px]  h-[76px] whitespace-nowrap flex items-center justify-center capitalize rounded-[8px] text-sm hover:shadow-sm transition duration-150 ease-in-out "
           >
